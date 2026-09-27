@@ -17,8 +17,8 @@
       <div class="mp-form-inner">
         <!-- <div class="mp-brand-mark" aria-hidden="true"></div> -->
 
-        <h2 class="mp-section-title">Welcome back!</h2>
-        <p class="mp-section-subtitle">Please log in to your account.</p>
+        <h2 class="mp-section-title">Selamat datang kembali!</h2>
+        <p class="mp-section-subtitle">Silakan masuk ke akun Anda.</p>
 
         <form id="mp-contact-form" class="mp-form" novalidate>
           <fieldset class="mp-fieldset">
@@ -28,7 +28,7 @@
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Enter your username"
+                placeholder="Masukkan username anda"
                 autocomplete="username"
                 required
               />
@@ -36,14 +36,24 @@
 
             <div class="mp-form-group">
               <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-              />
+              <div class="mp-password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Masukkan password anda"
+                  autocomplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  id="toggle-password"
+                  class="mp-toggle-password"
+                  aria-label="Tampilkan password"
+                >
+                  Show
+                </button>
+              </div>
             </div>
 
             <div
