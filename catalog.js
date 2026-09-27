@@ -525,12 +525,11 @@ function updateCartUI() {
   }
 
   // Label total harga di tombol navbar
-  const formatted = new Intl.NumberFormat("id-ID", {
+  const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
+    currency: "USD",
   }).format(totalPrice);
-  cartTotalLabelEl.textContent = totalPrice > 0 ? formatted : "Rp 0";
+  cartTotalLabelEl.textContent = totalPrice > 0 ? formatted : "$0.00";
 }
 
 // ============================================================================
@@ -666,10 +665,9 @@ function renderCartModal() {
 
   // Hitung total
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const formatted = new Intl.NumberFormat("id-ID", {
+  const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
+    currency: "USD",
   }).format(total);
   cartModalTotal.textContent = formatted;
 
