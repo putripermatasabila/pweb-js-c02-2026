@@ -36,14 +36,24 @@
 
             <div class="mp-form-group">
               <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-              />
+              <div class="mp-password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  id="toggle-password"
+                  class="mp-toggle-password"
+                  aria-label="Tampilkan password"
+                >
+                  Show
+                </button>
+              </div>
             </div>
 
             <div

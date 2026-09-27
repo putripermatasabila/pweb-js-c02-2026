@@ -3,6 +3,7 @@ const inputUsername = document.getElementById("username");
 const inputPassword = document.getElementById("password");
 const statusLogin = document.getElementById("status-login");
 const submitBtn = document.getElementById("submit-btn");
+const togglePassword = document.getElementById("toggle-password");
 
 function setStatus(message, type) {
   // type: "loading" | "error" | null (hide)
@@ -31,7 +32,7 @@ async function handleLogin(username, password) {
   setStatus("Sedang memverifikasi akun...", "loading"); // 1. Loading state
 
   try {
-    const respon = await fetch("https://dummyjson.com/users");
+    const respon = await fetch("https://dummyjson.com/users?limit=0");
 
     if (!respon.ok) {
       throw new Error(`Gagal terhubung ke server (status ${respon.status})`);
@@ -79,4 +80,10 @@ form.addEventListener("submit", (event) => {
   }
 
   handleLogin(username, password);
+});
+
+togglePassword.addEventListener("click", () => {
+  const isHidden = inputPassword.type === "password";
+  inputPassword.type = isHidden ? "text" : "password";
+  togglePassword.textContent = isHidden ? "Hide" : "Show";
 });

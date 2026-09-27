@@ -111,7 +111,28 @@ body {
   box-shadow: 0 0 0 3px rgba(68, 87, 255, 0.15);
   background: #ffffff;
 }
+.mp-password-wrapper {
+  position: relative;
+  display: flex;
+}
 
+.mp-password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* kasih ruang buat tombol */
+}
+
+.mp-toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-secondary);
+  padding: 4px;
+}
 .mp-status {
   display: none;
   font-size: 13px;
