@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Produk - Mini Shopee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="catalog.css" />
+    <script defer src="catalog.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true"></div>
+          <h1 class="brand-title">Mini Shopee</h1>
+        </div>
+
+        <div class="navbar-user">
+          <span class="user-greeting">
+            Selamat datang, <strong id="user-name">Pengguna</strong> 👋
+          </span>
+          <button id="logout-btn" class="logout-btn" type="button">
+            Keluar (Logout)
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+      <!-- Filter, Search, and Sort Controls -->
+      <section class="controls-panel">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Cari produk berdasarkan nama atau kategori..."
+            aria-label="Pencarian produk"
+          />
+        </div>
+
+        <div class="filter-group">
+          <!-- Dropdown Filter Kategori -->
+          <div class="select-wrapper">
+            <label for="category-filter" class="control-label">Kategori</label>
+            <select id="category-filter" aria-label="Filter Kategori">
+              <option value="">Semua Kategori</option>
+            </select>
+          </div>
+
+          <!-- Dropdown Sorting -->
+          <div class="select-wrapper">
+            <label for="sort-filter" class="control-label">Urutkan</label>
+            <select id="sort-filter" aria-label="Urutkan Produk">
+              <option value="">Default (Rekomendasi)</option>
+              <option value="price-asc">Harga: Termurah</option>
+              <option value="price-desc">Harga: Termahal</option>
+              <option value="rating-desc">Rating: Tertinggi</option>
+              <option value="rating-asc">Rating: Terendah</option>
+            </select>
+          </div>
+
+          <!-- Fitur Tambahan (Nilai Plus): Filter Rentang Harga -->
+          <div class="price-range-group">
+            <span class="control-label">Rentang Harga ($)</span>
+            <div class="price-inputs">
+              <input
+                type="number"
+                id="min-price"
+                placeholder="Min"
+                min="0"
+                step="any"
+                aria-label="Harga Minimum"
+              />
+              <span class="price-separator">-</span>
+              <input
+                type="number"
+                id="max-price"
+                placeholder="Max"
+                min="0"
+                step="any"
+                aria-label="Harga Maksimum"
+              />
+            </div>
+          </div>
+
+          <!-- Tombol Reset Filter -->
+          <div class="action-wrapper">
+            <button id="reset-filter-btn" class="btn-reset" type="button">
+              Reset Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- Info Hasil Filter / Jumlah Produk -->
+        <div class="results-meta">
+          <p id="results-count" class="results-text">Menyiapkan data produk...</p>
+        </div>
+      </section>
+
+      <!-- Global Error Message Box -->
+      <section id="error-state" class="error-container" style="display: none;">
+        <div class="error-icon" aria-hidden="true">⚠️</div>
+        <h2 class="error-title">Gagal Memuat Produk</h2>
+        <p id="error-message" class="error-desc">
+          Terjadi kendala saat menghubungi server API.
+        </p>
+        <button id="retry-btn" class="btn-retry" type="button">
+          Coba Lagi
+        </button>
+      </section>
+
+      <!-- Empty State -->
+      <section id="empty-state" class="empty-container" style="display: none;">
+        <div class="empty-icon" aria-hidden="true">📦</div>
+        <h2 class="empty-title">Produk Tidak Ditemukan</h2>
+        <p class="empty-desc">
+          Coba sesuaikan kata kunci pencarian, kategori, atau rentang harga Anda.
+        </p>
+        <button id="empty-reset-btn" class="btn-primary" type="button">
+          Tampilkan Semua Produk
+        </button>
+      </section>
+
+      <!-- Grid Produk & Skeleton Loading -->
+      <section
+        id="products-grid"
+        class="products-grid"
+        aria-live="polite"
+      ></section>
+
+      <!-- Load More / Pagination Area -->
+      <section id="pagination-wrapper" class="pagination-wrapper">
+        <button id="load-more-btn" class="btn-load-more" type="button">
+          Muat Lebih Banyak (Load More)
+        </button>
+        <p id="pagination-info" class="pagination-info"></p>
+      </section>
+    </main>
+  </body>
+</html>

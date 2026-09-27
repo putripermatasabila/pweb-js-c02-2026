@@ -54,12 +54,17 @@ async function handleLogin(username, password) {
     localStorage.setItem("firstName", userDitemukan.firstName);
     setStatus(`Berhasil masuk, mengalihkan...`, "loading");
 
-    window.location.href = "index.html";
+    window.location.href = "catalog.html";
   } catch (error) {
     // 4. Error: koneksi/API bermasalah
     setStatus(`Terjadi kesalahan: ${error.message}`, "error");
     setSubmitting(false);
   }
+}
+
+// Jika sudah ada sesi login, langsung arahkan ke katalog produk
+if (localStorage.getItem("firstName")) {
+  window.location.href = "catalog.html";
 }
 
 form.addEventListener("submit", (event) => {
