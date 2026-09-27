@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Mini Shopee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="contact" class="mp-form-section">
+      <div class="mp-form-inner">
+        <!-- <div class="mp-brand-mark" aria-hidden="true"></div> -->
+
+        <h2 class="mp-section-title">Welcome back!</h2>
+        <p class="mp-section-subtitle">Please log in to your account.</p>
+
+        <form id="mp-contact-form" class="mp-form" novalidate>
+          <fieldset class="mp-fieldset">
+            <div class="mp-form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+              />
+            </div>
+
+            <div class="mp-form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+
+            <div
+              id="status-login"
+              class="mp-status"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+            <button type="submit" id="submit-btn" class="submit-btn">
+              <span class="submit-btn-label">Login</span>
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <script defer src="script.js"></script>
+  </body>
+</html>
