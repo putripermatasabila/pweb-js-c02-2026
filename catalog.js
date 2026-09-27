@@ -419,46 +419,33 @@ function resetFilters() {
 resetFilterBtn.addEventListener("click", resetFilters);
 emptyResetBtn.addEventListener("click", resetFilters);
 
-// Tombol Tambah ke Keranjang (Feedback visual interaktif)
 // ============================================================================
 // ORANG 3: Event Delegation pada #products-grid
 // Membedakan klik tombol "Tambah ke Keranjang" vs klik kartu produk untuk modal.
 // ============================================================================
 productsGrid.addEventListener("click", (e) => {
   // 1. Prioritas: Cek apakah klik pada tombol "Tambah ke Keranjang"
-  const cartBtn = e.target.closest(".btn-add-cart");
-  if (!cartBtn) return;
-  if (cartBtn) {
+  const addCartBtn = e.target.closest(".btn-add-cart");
+  if (addCartBtn) {
     e.stopPropagation(); // Cegah event bubble ke kartu
-    const productId = Number(cartBtn.dataset.id);
+    const productId = Number(addCartBtn.dataset.id);
     addToCart(productId);
 
-  const originalText = cartBtn.textContent;
-  cartBtn.textContent = "✓ Ditambahkan!";
-  cartBtn.style.backgroundColor = "#22c55e";
-  cartBtn.style.color = "#ffffff";
-  cartBtn.disabled = true;
     // Feedback visual singkat
-    const originalText = cartBtn.textContent;
-    cartBtn.textContent = "✓ Ditambahkan!";
-    cartBtn.style.backgroundColor = "#22c55e";
-    cartBtn.style.color = "#ffffff";
-    cartBtn.disabled = true;
+    const originalText = addCartBtn.textContent;
+    addCartBtn.textContent = "✓ Ditambahkan!";
+    addCartBtn.style.backgroundColor = "#22c55e";
+    addCartBtn.style.color = "#ffffff";
+    addCartBtn.disabled = true;
     setTimeout(() => {
-      cartBtn.textContent = originalText;
-      cartBtn.style.backgroundColor = "";
-      cartBtn.style.color = "";
-      cartBtn.disabled = false;
+      addCartBtn.textContent = originalText;
+      addCartBtn.style.backgroundColor = "";
+      addCartBtn.style.color = "";
+      addCartBtn.disabled = false;
     }, 1200);
     return;
   }
 
-  setTimeout(() => {
-    cartBtn.textContent = originalText;
-    cartBtn.style.backgroundColor = "";
-    cartBtn.style.color = "";
-    cartBtn.disabled = false;
-  }, 1200);
   // 2. Klik pada kartu produk → buka modal detail
   const card = e.target.closest(".product-card");
   if (card) {
