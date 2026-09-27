@@ -27,7 +27,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
   line-height: 1.5;
@@ -292,6 +298,7 @@ body {
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   position: relative;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -438,12 +445,7 @@ body {
 }
 
 .skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    #f0f2f5 0%,
-    #e4e7eb 50%,
-    #f0f2f5 100%
-  );
+  background: linear-gradient(90deg, #f0f2f5 0%, #e4e7eb 50%, #f0f2f5 100%);
   background-size: 200% 100%;
   animation: shimmerAnim 1.5s infinite;
 }
@@ -627,35 +629,6 @@ body {
 }
 
 /* ==========================================================================
-   Responsive Adaptations
-   ========================================================================== */
-@media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-@media (max-width: 480px) {
-  .navbar-user {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .filter-group {
-    flex-direction: column;
-    align-items: stretch;
-  .user-greeting {
-    font-size: 13px;
-  }
-}
-
-  .select-wrapper select,
-  .price-inputs input[type="number"],
-  .btn-reset {
-    width: 100%;
-/* ==========================================================================
    Cart Button (Navbar) - Orang 3
    ========================================================================== */
 .cart-btn {
@@ -709,8 +682,12 @@ body {
 }
 
 @keyframes badgePop {
-  0% { transform: scale(0); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cart-total-label {
@@ -736,8 +713,12 @@ body {
 }
 
 @keyframes overlayFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-dialog {
@@ -754,8 +735,14 @@ body {
 }
 
 @keyframes modalSlideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modal-close-btn {
@@ -904,27 +891,6 @@ body {
 
 .btn-modal-add-cart.added {
   background: #22c55e;
-}
-
-/* Responsive modal layout */
-@media (max-width: 620px) {
-  .modal-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .price-inputs {
-    width: 100%;
-  .modal-dialog {
-    padding: 24px 18px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
-  .modal-image-wrap {
-    max-width: 240px;
-    margin: 0 auto;
-  }
 }
 
 /* ==========================================================================
@@ -1198,8 +1164,14 @@ body {
 }
 
 @keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.6); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .back-to-top-btn:hover {
@@ -1208,7 +1180,60 @@ body {
   box-shadow: 0 10px 28px rgba(68, 87, 255, 0.4);
 }
 
-/* Card product cursor pointer agar terlihat bisa diklik untuk modal */
-.product-card {
-  cursor: pointer;
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-user {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-wrapper select,
+  .price-inputs input[type="number"],
+  .btn-reset {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .modal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .price-inputs {
+    width: 100%;
+  }
+
+  .modal-dialog {
+    padding: 24px 18px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .modal-image-wrap {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-greeting {
+    font-size: 13px;
+  }
 }
